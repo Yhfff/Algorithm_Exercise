@@ -1,4 +1,4 @@
-#### [Offer04.  二维数组中的查找](https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/)
+#### [剑指Offer04.  二维数组中的查找](https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/)
 
 #### 考点：查找
 
@@ -12,14 +12,14 @@
 
 ```java
 public boolean findNumberIn2DArray(int[][] matrix, int target) {
-        for (int[] row : matrix) {
-            for (int element : row) {
-                if (element == target) {
-                    return true;
-                }
+    for (int[] row : matrix) {
+        for (int element : row) {
+            if (element == target) {
+                return true;
             }
         }
-        return false;
+    }
+    return false;
 }
 ```
 
@@ -27,29 +27,29 @@ public boolean findNumberIn2DArray(int[][] matrix, int target) {
 
 ```java
 public boolean findNumberIn2DArray(int[][] matrix, int target) {
-        for (int[] row : matrix) {
-            int index = search(row, target);
-            if (index >= 0) {
-                return true;
-            }
+    for (int[] row : matrix) {
+        int index = search(row, target);
+        if (index >= 0) {
+            return true;
         }
-        return false;
+    }
+    return false;
 }
 
 public int search(int[] nums, int target) {
-        int low = 0, high = nums.length - 1;
-        while (low <= high) {
-            int mid = (high - low) / 2 + low;
-            int num = nums[mid];
-            if (num == target) {
-                return mid;
-            } else if (num > target) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
+    int low = 0, high = nums.length - 1;
+    while (low <= high) {
+        int mid = (high - low) / 2 + low;
+        int num = nums[mid];
+        if (num == target) {
+            return mid;
+        } else if (num > target) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
         }
-        return -1;
+    }
+    return -1;
 }
 ```
 
@@ -68,17 +68,17 @@ public int search(int[] nums, int target) {
 
 ```java
 public boolean findNumberIn2DArray(int[][] matrix, int target) {
-        // 从左下角开始查找
-        int i = matrix.length - 1, j = 0;
-        while(i >= 0 && j < matrix[0].length){
-            if(matrix[i][j] > target){
-                i--;
-            }else if(matrix[i][j] < target){
-                j++;
-            }else
-                return true;
-        }
-        return false;
+    // 从左下角开始查找
+    int i = matrix.length - 1, j = 0;
+    while(i >= 0 && j < matrix[0].length){
+        if(matrix[i][j] > target){
+            i--;
+        }else if(matrix[i][j] < target){
+            j++;
+        }else
+            return true;
+    }
+    return false;
 }
 ```
 
@@ -92,18 +92,18 @@ public boolean findNumberIn2DArray(int[][] matrix, int target) {
 
 ```java
 public boolean findNumberIn2DArray(int[][] matrix, int target) {
-    	// 判断数组是否为空
-        if(matrix.length == 0) return false;
-        // 从右上角开始查找
-        int i = 0, j = matrix[0].length - 1;
-        while(i < matrix.length && j >= 0){
-            if(matrix[i][j] > target){
-                j--;
-            }else if(matrix[i][j] < target){
-                i++;
-            }else
-                return true;
-        }
-        return false;
+    // 判断数组是否为空
+    if(matrix.length == 0) return false;
+    // 从右上角开始查找
+    int i = 0, j = matrix[0].length - 1;
+    while(i < matrix.length && j >= 0){
+        if(matrix[i][j] > target){
+            j--;
+        }else if(matrix[i][j] < target){
+            i++;
+        }else
+            return true;
+    }
+    return false;
 }
 ```
